@@ -1,0 +1,59 @@
+{
+  "expo": {
+    "name": "Voodoo",
+    "slug": "Voodoo",
+    "owner": "mzm-agency",
+    "privacy": "public",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/Zaaldy-logo-big.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#322209"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "mzm.voodoo.app",
+      "buildNumber": "1",
+      "infoPlist": {
+        "CFBundleAllowMixedLocalizations": true,
+        "NSFaceIDUsageDescription": "This app will optionally use Face ID or Touch ID to save login",
+        "NSMicrophoneUsageDescription": "Allow to access your microphone"
+      }
+    },
+    "android": {
+      "package": "mzm.voodoo.app",
+      "versionCode": 1,
+      "useNextNotificationsApi": true,
+      "intentFilters": [
+        {
+          "action": "VIEW",
+          "autoVerify": true,
+          "data": [
+            {
+              "scheme": "http",
+              "host": "com.voodoo",
+              "pathPrefix": "/voodoo"
+            }
+          ],
+          "category": [
+            "BROWSABLE",
+            "DEFAULT"
+          ]
+        }
+      ]
+    }
+  }
+}
