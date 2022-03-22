@@ -11,6 +11,8 @@ import Single from "./components/Single";
 import Comments from "./components/Comments";
 import Profile from "./components/profile/Profile";
 import Search from "./components/Search";
+import Support from "./components/profile/Support";
+import Settings from "./components/profile/Settings";
 
 
 const screenWidth = Math.round(Dimensions.get('window').width);
@@ -132,6 +134,8 @@ export default () => {
                 <MainStack.Screen name="single" component={Single}/>
                 <MainStack.Screen name="comments" component={Comments}/>
                 <MainStack.Screen name="profile" component={Profile}/>
+                <MainStack.Screen name="support" component={Support}/>
+                <MainStack.Screen name="settings" component={Settings}/>
 
             </>
         </MainStack.Navigator>

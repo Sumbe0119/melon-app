@@ -8,6 +8,7 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@miblanchard/react-native-slider": "^2.1.0",
     "@react-native-async-storage/async-storage": "^1.15.16",
     "@react-native-community/art": "^1.2.0",
     "@react-native-community/clipboard": "^1.4.0",

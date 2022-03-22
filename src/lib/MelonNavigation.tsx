@@ -5,7 +5,6 @@ import {
     Text,
     TouchableOpacity,
     Image,
-    TextInput,
     Dimensions,
 } from "react-native";
 import ErrorView from "./ErrorView";
@@ -84,7 +83,7 @@ const styles = StyleSheet.create({
     },
     headTitle: {
         color: '#FFF',
-        fontSize: 14,
+        fontSize: 16,
         fontFamily: AppStyle.DEFAULT.font.bold,
     },
 

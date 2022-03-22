@@ -1,15 +1,18 @@
 import React from 'react'
-import {Text, View, StyleSheet, Dimensions, Image} from "react-native";
+import {Text, View, StyleSheet, Dimensions, Image, TouchableOpacity} from "react-native";
 import MelonNavigation from "../../lib/MelonNavigation";
 import AppStyle from "../../lib/AppStyle";
+
+import Constants from 'expo-constants';
 
 
 const screenWidth = Math.round(Dimensions.get('window').width);
 
 const Profile = ({navigation}) => {
     return (
-        <MelonNavigation navigation={navigation} back={true} headTitle={'Profile'} loading={false} reloadAction={() => {
-        }} resultCode={200}>
+
+        <View style={{flex: 1, backgroundColor: '#000'}}>
+            {/*<Text style={{paddingTop: Constants.statusBarHeight +45, color: '#fff', fontFamily: AppStyle.DEFAULT.font.bold, fontSize: 18, marginLeft: 15,marginBottom: 20}}>Profile</Text>*/}
             <View style={styles.contain}>
                 <View style={styles.top}>
                     <View style={{width: screenWidth - 120}}>
@@ -20,12 +23,8 @@ const Profile = ({navigation}) => {
                             fontSize: 18
                         }}>Tuguldur Sumbe</Text>
                         <View style={{flexDirection: 'row'}}>
-                            <Text style={{color: '#808082', fontFamily:AppStyle.DEFAULT.font.mediumSF}}>MELON ID: 106018549</Text>
-                            <Text style={{
-                                color: '#109B84',
-                                marginLeft: 20,
-                                fontFamily: AppStyle.DEFAULT.font.medium
-                            }}>Sign out</Text>
+                            <Text style={{color: '#808082', fontFamily: AppStyle.DEFAULT.font.mediumSF}}>MELON ID:
+                                106018549</Text>
                         </View>
                         <Text style={{
                             color: '#fff',
@@ -37,8 +36,8 @@ const Profile = ({navigation}) => {
                         <Text style={styles.avatarText}>M</Text>
                     </View>
                 </View>
-                <View style={styles.middle}>
-                    <Text style={styles.middleText}>Subsctiptions</Text>
+                <TouchableOpacity style={styles.middle}>
+                    <Text style={styles.middleText}>Таалагдсан</Text>
                     <Image
                         style={{
                             height: 22,
@@ -47,9 +46,9 @@ const Profile = ({navigation}) => {
                             marginRight: 20
                         }}
                         source={require('../../../assets/images/icon/videos.png')}/>
-                </View>
-                <View style={styles.middle}>
-                    <Text style={styles.middleText}>Bonus and Gifts</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.middle}>
+                    <Text style={styles.middleText}>Бонус урамшуулал</Text>
                     <Image
                         style={{
                             height: 22,
@@ -58,9 +57,9 @@ const Profile = ({navigation}) => {
                             marginRight: 20
                         }}
                         source={require('../../../assets/images/icon/gift.png')}/>
-                </View>
-                <View style={styles.middle}>
-                    <Text style={styles.middleText}>Personal control</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.middle}>
+                    <Text style={styles.middleText}>Насанд хүрэгчид</Text>
                     <Image
                         style={{
                             height: 22,
@@ -69,9 +68,9 @@ const Profile = ({navigation}) => {
                             marginRight: 20
                         }}
                         source={require('../../../assets/images/icon/security.png')}/>
-                </View>
-                <View style={styles.middle}>
-                    <Text style={styles.middleText}>Settings</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.middle} onPress={()=> navigation.navigate('settings')}>
+                    <Text style={styles.middleText}>Тохиргоо</Text>
                     <Image
                         style={{
                             height: 22,
@@ -80,9 +79,9 @@ const Profile = ({navigation}) => {
                             marginRight: 20
                         }}
                         source={require('../../../assets/images/icon/settings.png')}/>
-                </View>
-                <View style={styles.middle}>
-                    <Text style={styles.middleText}>Your supports</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.middle} onPress={()=> navigation.navigate('support')}>
+                    <Text style={styles.middleText}>Тусламж</Text>
                     <Image
                         style={{
                             height: 22,
@@ -91,23 +90,40 @@ const Profile = ({navigation}) => {
                             marginRight: 20
                         }}
                         source={require('../../../assets/images/icon/supports.png')}/>
-                </View>
+                </TouchableOpacity>
                 <View style={styles.bottom}>
-                    <Text style={styles.bottomText}>Манайд үнэлгээ өгөх</Text>
-                    <Text style={styles.bottomText}>Найзууддаа хуваалцах</Text>
-                    <Text style={styles.bottomText}>Үйлчилгээний нөхцөл</Text>
-                    <Text style={styles.bottomText}>Application version 2.0.0 </Text>
+                    <TouchableOpacity style={styles.subMiddle}>
+                        <Text style={styles.bottomText}>Манайд үнэлгээ өгөх</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.subMiddle}>
+                        <Text style={styles.bottomText}>Найзууддаа хуваалцах</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.subMiddle}>
+                        <Text style={styles.bottomText}>Үйлчилгээний нөхцөл</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.subMiddle}>
+                        <Text style={styles.bottomText}>Application version 2.0.0 </Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.subMiddle}>
+                        <Text style={{...styles.bottomText, color: '#109B84'}}>Системээс Гарах</Text>
+                        <Image
+                            style={{
+                                height: 22,
+                                width: 22,
+                                tintColor: '#109B84',
+                                marginRight: 20
+                            }}
+                            source={require('../../../assets/images/icon/logout.png')}/>
+                    </TouchableOpacity>
                 </View>
             </View>
+        </View>
 
-        </MelonNavigation>
     )
 }
 
 const styles = StyleSheet.create({
     contain: {
-        flex: 1,
-        backgroundColor: '#000',
         marginHorizontal: 15
     },
     top: {
@@ -117,7 +133,8 @@ const styles = StyleSheet.create({
         paddingBottom: 30,
         borderBottomWidth: 1,
         borderStyle: 'solid',
-        borderColor: '#2F3035'
+        borderColor: '#2F3035',
+        paddingTop: Constants.statusBarHeight + 70
     },
     avatar: {
         height: 60,
@@ -142,7 +159,7 @@ const styles = StyleSheet.create({
         paddingVertical: 15
     },
     middleText: {
-        fontSize: 18,
+        fontSize: 17,
         fontFamily: AppStyle.DEFAULT.font.bold,
         color: '#fff'
     },
@@ -154,6 +171,12 @@ const styles = StyleSheet.create({
         paddingVertical: 10,
         fontFamily: AppStyle.DEFAULT.font.light,
         fontSize: 14
+    },
+    subMiddle: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        paddingVertical: 5
     }
 
 })

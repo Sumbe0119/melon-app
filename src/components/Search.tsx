@@ -2,6 +2,7 @@ import React from 'react'
 import {Text, View, StyleSheet, Dimensions, Image, TextInput, FlatList, TouchableOpacity} from "react-native";
 
 import Constants from 'expo-constants';
+import AppStyle from "../lib/AppStyle";
 
 const screenWidth = Math.round(Dimensions.get('window').width);
 
@@ -73,6 +74,7 @@ const Search = ({navigation}) => {
                         source={require('../../assets/images/icon/search.png')}/>
                     <TextInput placeholder={'Хайх'} placeholderTextColor={'#808082'} style={styles.input}/>
                 </View>
+                <Text style={styles.text}>Алдартай</Text>
                 <FlatList
                     data={data}
                     showsVerticalScrollIndicator={true}
@@ -96,7 +98,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 15
     },
     header: {
-        paddingTop: Constants.statusBarHeight + 50
+        paddingTop: Constants.statusBarHeight + 70
     },
     inputContainer: {
         height: 45,
@@ -111,6 +113,12 @@ const styles = StyleSheet.create({
     input: {
         flex: 1,
         color: '#fff'
+    },
+    text:{
+        color: '#fff',
+        fontSize: 18,
+        fontFamily: AppStyle.DEFAULT.font.bold,
+        marginBottom: 10
     }
 })
 
