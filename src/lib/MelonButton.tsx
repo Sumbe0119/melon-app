@@ -8,7 +8,7 @@ interface ButtonProps {
     icon?: any,
     style?: StyleProp<ViewStyle>,
     onPress?: Function,
-    type: 'main' | 'white',
+    type: 'main' | 'black',
     loading?: boolean,
     loadingColor?: string,
 
@@ -24,10 +24,10 @@ class MelonButton extends React.Component<ButtonProps> {
 
     render() {
         const {title, style,type,icon} = this.props;
-        let buttonStyle = type == 'white'?styles.buttonWhite:styles.button
+        let buttonStyle = type == 'black'?styles.buttonWhite:styles.button
         const containerStyle = style ? [buttonStyle, style] : buttonStyle;
-        const textStyle = type == 'white'?styles.buttonRedText:styles.buttonText
-        const loadingColor = this.props.loadingColor || "#FFFFFF";
+        const textStyle = type == 'black'?styles.buttonRedText:styles.buttonText
+        const loadingColor = this.props.loadingColor || "#000";
         const loading = this.props.loading || false;
         return (
             <TouchableOpacity style={[containerStyle, styles.horizontal]} onPress={() => {this.onPress()}}>
@@ -35,7 +35,7 @@ class MelonButton extends React.Component<ButtonProps> {
                     loading ? (<ActivityIndicator size="small" style={{marginRight: 10}} color={loadingColor}/>) : null
                 }
                 {
-                    !loading && icon ? (<LinearIcons style={{marginRight: 10,color:"#FFF"}} name={icon} size={18}/>):null
+                    !loading && icon ? (<LinearIcons style={{marginRight: 10,color:"#000"}} name={icon} size={18}/>):null
                 }
                 <Text style={textStyle}>{title}</Text>
             </TouchableOpacity>
@@ -47,30 +47,29 @@ class MelonButton extends React.Component<ButtonProps> {
 
 const styles = StyleSheet.create({
     button: {
-        backgroundColor: '#B069F3',
-        height: 50,
+        backgroundColor: '#fff',
+        height: 45,
         alignItems: 'center',
         justifyContent: 'center',
         textAlign:"center",
-        borderRadius: 10
+        borderRadius: 5
     },
     buttonWhite:{
-        borderWidth: 1,
-        borderColor: '#9E805A',
-        height: 50,
+        backgroundColor: '#2F3035',
+        height: 45,
         alignItems: 'center',
         justifyContent: 'center',
         textAlign:"center",
-        borderRadius: 10
+        borderRadius: 5
     },
     buttonRedText:{
         fontFamily: AppStyle.DEFAULT.font.bold,
-        color: '#000',
+        color: '#fff',
         fontSize: 14,
     },
     buttonText: {
         fontFamily: AppStyle.DEFAULT.font.bold,
-        color: 'white',
+        color: '#000',
         fontSize: 14,
     },
     horizontal: {

@@ -7,7 +7,6 @@ import AppStyle from "../lib/AppStyle";
 const screenWidth = Math.round(Dimensions.get('window').width);
 
 
-
 const data = [
     {
         id: '1',
@@ -44,9 +43,9 @@ const data = [
 ];
 
 
-const renderItem = (item: any, index: number, separators: any, navigation: any ) => (
-    <TouchableOpacity onPress={()=>navigation.navigate('single')}
-                      key={index} style={{width: (screenWidth - 30) / 3, marginRight: 10}}>
+const renderItem = (item: any, index: number, separators: any, navigation: any) => (
+    <TouchableOpacity onPress={() => navigation.navigate('single')}
+                      key={index} style={{width: (screenWidth - 30) / 3, marginRight: 10, marginBottom: 30}}>
         <Image style={{
             borderRadius: 5,
             width: (screenWidth - 30) / 3,
@@ -74,7 +73,24 @@ const Search = ({navigation}) => {
                         source={require('../../assets/images/icon/search.png')}/>
                     <TextInput placeholder={'Хайх'} placeholderTextColor={'#808082'} style={styles.input}/>
                 </View>
-                <Text style={styles.text}>Алдартай</Text>
+
+                <View style={{
+                    flexDirection: 'row',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    marginBottom: 10
+                }}>
+                    <Text style={{...styles.text, marginBottom: 0}}>Алдартай</Text>
+                    <View style={styles.filter}>
+                        <Image
+                            style={{
+                                height: 20,
+                                width: 20,
+                                tintColor: '#808082',
+                            }}
+                            source={require('../../assets/images/icon/filter.png')}/>
+                    </View>
+                </View>
                 <FlatList
                     data={data}
                     showsVerticalScrollIndicator={true}
@@ -114,11 +130,21 @@ const styles = StyleSheet.create({
         flex: 1,
         color: '#fff'
     },
-    text:{
+    text: {
         color: '#fff',
         fontSize: 18,
         fontFamily: AppStyle.DEFAULT.font.bold,
         marginBottom: 10
+    },
+    filter: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#1a1a1a',
+        borderRadius: 10,
+        height: 35,
+        width: 35,
+
     }
 })
 

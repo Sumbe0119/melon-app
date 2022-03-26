@@ -1,6 +1,6 @@
 import React from 'react';
 import {createStackNavigator} from "@react-navigation/stack";
-import {Platform, Dimensions, Text, View, Image, StyleSheet} from "react-native";
+import {Platform, Image, StyleSheet} from "react-native";
 import {createMaterialBottomTabNavigator} from "@react-navigation/material-bottom-tabs";
 import Home from "./components/home/Home";
 import AppStyle from "./lib/AppStyle";
@@ -13,9 +13,16 @@ import Profile from "./components/profile/Profile";
 import Search from "./components/Search";
 import Support from "./components/profile/Support";
 import Settings from "./components/profile/Settings";
+import Series from "./components/Series";
+import Login from "./components/user/Login";
+import Register from "./components/user/Register";
+import ResetPassword from "./components/user/ResetPassword";
+import Premium from "./components/Premium";
+import Subscriptions from "./components/profile/Subscriptions";
+import Bonus from "./components/profile/Bonus";
+import About from "./components/profile/About";
 
 
-const screenWidth = Math.round(Dimensions.get('window').width);
 
 const HomeTab = createMaterialBottomTabNavigator();
 const HomeTabView = () => {
@@ -69,7 +76,7 @@ const HomeTabView = () => {
                     ,
                     title: 'Цуврал'
                 }}
-                name="video" component={Home}/>
+                name="series" component={Series}/>
             <HomeTab.Screen
                 options={{
                     tabBarIcon: ({focused, color}) =>
@@ -136,7 +143,13 @@ export default () => {
                 <MainStack.Screen name="profile" component={Profile}/>
                 <MainStack.Screen name="support" component={Support}/>
                 <MainStack.Screen name="settings" component={Settings}/>
-
+                <MainStack.Screen name="login" component={Login}/>
+                <MainStack.Screen name="reqister" component={Register}/>
+                <MainStack.Screen name="resetPass" component={ResetPassword}/>
+                <MainStack.Screen name="premium" component={Premium}/>
+                <MainStack.Screen name="subscriptions" component={Subscriptions}/>
+                <MainStack.Screen name="bonus" component={Bonus}/>
+                <MainStack.Screen name="about" component={About}/>
             </>
         </MainStack.Navigator>
     )

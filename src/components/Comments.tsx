@@ -34,7 +34,7 @@ const Comments = ({navigation}) => {
                                             <View style={styles.avatar}>
                                                 <Text style={styles.avatarText}>С</Text>
                                             </View>
-                                            <View style={{width: screenWidth - 88}}>
+                                            <View style={{width: screenWidth - 95}}>
                                                 <View
                                                     style={{flexDirection: 'row', alignItems: 'center', marginTop: 2}}>
                                                     <Text style={styles.avatarSubText}>Baatar0701</Text>
@@ -90,7 +90,8 @@ const Comments = ({navigation}) => {
 const styles = StyleSheet.create({
     contain: {
         flex: 1,
-        backgroundColor: '#000'
+        backgroundColor: '#000',
+        paddingHorizontal: 15
     },
     input: {
         backgroundColor: '#000',

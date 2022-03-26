@@ -6,6 +6,7 @@ import AppStyle from "../../lib/AppStyle";
 
 const screenWidth = Math.round(Dimensions.get('window').width);
 
+
 const Support = ({navigation}) => {
     return (
         <MelonNavigation loading={false} resultCode={200} navigation={navigation} headTitle={'Тусламж'} back={true}>
@@ -17,6 +18,7 @@ const Support = ({navigation}) => {
                               style={styles.topLeftText}>Та
                             манай сайттай холбоотой санал хүсэлтээ илгээх бол энд дарна уу</Text>
                     </View>
+
                     <Image style={{
                         height: 35,
                         width: 35,

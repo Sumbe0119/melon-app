@@ -1,6 +1,5 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {Text, View, StyleSheet, Dimensions, Image, TouchableOpacity} from "react-native";
-import MelonNavigation from "../../lib/MelonNavigation";
 import AppStyle from "../../lib/AppStyle";
 
 import Constants from 'expo-constants';
@@ -9,34 +8,59 @@ import Constants from 'expo-constants';
 const screenWidth = Math.round(Dimensions.get('window').width);
 
 const Profile = ({navigation}) => {
+    const [user, setUser] = useState(false)
+
     return (
 
         <View style={{flex: 1, backgroundColor: '#000'}}>
-            {/*<Text style={{paddingTop: Constants.statusBarHeight +45, color: '#fff', fontFamily: AppStyle.DEFAULT.font.bold, fontSize: 18, marginLeft: 15,marginBottom: 20}}>Profile</Text>*/}
             <View style={styles.contain}>
                 <View style={styles.top}>
-                    <View style={{width: screenWidth - 120}}>
-                        <Text style={{
-                            color: '#fff',
-                            fontFamily: AppStyle.DEFAULT.font.bold,
-                            marginBottom: 5,
-                            fontSize: 18
-                        }}>Tuguldur Sumbe</Text>
-                        <View style={{flexDirection: 'row'}}>
-                            <Text style={{color: '#808082', fontFamily: AppStyle.DEFAULT.font.mediumSF}}>MELON ID:
-                                106018549</Text>
-                        </View>
-                        <Text style={{
-                            color: '#fff',
-                            fontFamily: AppStyle.DEFAULT.font.bold,
-                            marginTop: 5
-                        }}>t.sumbe01192@gmail.com</Text>
-                    </View>
-                    <View style={styles.avatar}>
+                    {
+                        user ? (
+                            <View style={{width: screenWidth - 120}}>
+                                <Text style={{
+                                    color: '#fff',
+                                    fontFamily: AppStyle.DEFAULT.font.bold,
+                                    marginBottom: 5,
+                                    fontSize: 18
+                                }}>Tuguldur Sumbe</Text>
+                                <View style={{flexDirection: 'row'}}>
+                                    <Text style={{color: '#808082', fontFamily: AppStyle.DEFAULT.font.mediumSF}}>MELON
+                                        ID:
+                                        106018549</Text>
+                                </View>
+                                <Text style={{
+                                    color: '#fff',
+                                    fontFamily: AppStyle.DEFAULT.font.bold,
+                                    marginTop: 5
+                                }}>t.sumbe01192@gmail.com</Text>
+                            </View>
+                        ) : (
+                            <View style={{width: screenWidth - 120}}>
+                                <Text style={{
+                                    color: '#808082',
+                                    marginBottom: 5,
+                                    fontFamily: AppStyle.DEFAULT.font.light
+                                }}>Та өөрийн бүртгэлээр нэвтэрнэ үү.</Text>
+                                <View style={{flexDirection: 'row'}}>
+                                    <Text style={{color: '#808082', fontFamily: AppStyle.DEFAULT.font.mediumSF, marginRight: 10}}>MELON
+                                        ID:
+                                        106018549</Text>
+                                 <TouchableOpacity onPress={()=> navigation.navigate('login')}>
+                                     <Text style={{
+                                         color: '#109B84',
+                                         fontFamily: AppStyle.DEFAULT.font.regularSF
+                                     }}>Нэвтрэх</Text>
+                                 </TouchableOpacity>
+                                </View>
+                            </View>
+                        )
+                    }
+                    <TouchableOpacity style={styles.avatar} onPress={()=> navigation.navigate('about')}>
                         <Text style={styles.avatarText}>M</Text>
-                    </View>
+                    </TouchableOpacity>
                 </View>
-                <TouchableOpacity style={styles.middle}>
+                <TouchableOpacity style={styles.middle} onPress={()=> navigation.navigate('subscriptions')}>
                     <Text style={styles.middleText}>Таалагдсан</Text>
                     <Image
                         style={{
@@ -47,7 +71,7 @@ const Profile = ({navigation}) => {
                         }}
                         source={require('../../../assets/images/icon/videos.png')}/>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.middle}>
+                <TouchableOpacity style={styles.middle} onPress={()=>navigation.navigate('bonus')}>
                     <Text style={styles.middleText}>Бонус урамшуулал</Text>
                     <Image
                         style={{
@@ -69,7 +93,7 @@ const Profile = ({navigation}) => {
                         }}
                         source={require('../../../assets/images/icon/security.png')}/>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.middle} onPress={()=> navigation.navigate('settings')}>
+                <TouchableOpacity style={styles.middle} onPress={() => navigation.navigate('settings')}>
                     <Text style={styles.middleText}>Тохиргоо</Text>
                     <Image
                         style={{
@@ -80,7 +104,7 @@ const Profile = ({navigation}) => {
                         }}
                         source={require('../../../assets/images/icon/settings.png')}/>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.middle} onPress={()=> navigation.navigate('support')}>
+                <TouchableOpacity style={styles.middle} onPress={() => navigation.navigate('support')}>
                     <Text style={styles.middleText}>Тусламж</Text>
                     <Image
                         style={{
@@ -101,9 +125,9 @@ const Profile = ({navigation}) => {
                     <TouchableOpacity style={styles.subMiddle}>
                         <Text style={styles.bottomText}>Үйлчилгээний нөхцөл</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.subMiddle}>
+                    <View style={styles.subMiddle}>
                         <Text style={styles.bottomText}>Application version 2.0.0 </Text>
-                    </TouchableOpacity>
+                    </View>
                     <TouchableOpacity style={styles.subMiddle}>
                         <Text style={{...styles.bottomText, color: '#109B84'}}>Системээс Гарах</Text>
                         <Image
