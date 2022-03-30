@@ -4,6 +4,7 @@ import MelonNavigation from "../../lib/MelonNavigation";
 import Premium from "../Premium";
 
 const Subscriptions = ({navigation}) => {
+
     return (
         <MelonNavigation loading={false} resultCode={200} navigation={navigation} back={true} headTitle={'Таалагдсан'}>
             <View style={styles.contain}>

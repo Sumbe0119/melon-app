@@ -21,7 +21,7 @@ const Premium = () => {
                     </View>
                     <View style={{flexDirection: "column", alignItems: 'flex-end'}}>
                         <View style={styles.promoBox}>
-                            <Text style={styles.promoText}>PROMO</Text>
+                            <Text style={styles.promoText}>PREMUIM</Text>
                         </View>
                         <Text style={styles.promoText}>FREE</Text>
                         <Text style={styles.promoTextBottom}>1 сар</Text>

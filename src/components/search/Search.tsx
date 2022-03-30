@@ -1,8 +1,9 @@
 import React from 'react'
 import {Text, View, StyleSheet, Dimensions, Image, TextInput, FlatList, TouchableOpacity} from "react-native";
+import * as Animatable from 'react-native-animatable';
 
 import Constants from 'expo-constants';
-import AppStyle from "../lib/AppStyle";
+import AppStyle from "../../lib/AppStyle";
 
 const screenWidth = Math.round(Dimensions.get('window').width);
 
@@ -10,35 +11,35 @@ const screenWidth = Math.round(Dimensions.get('window').width);
 const data = [
     {
         id: '1',
-        image: require('../../assets/images/image1.png'),
+        image: require('../../../assets/images/image1.png'),
     },
     {
         id: '2',
-        image: require('../../assets/images/image2.png'),
+        image: require('../../../assets/images/image2.png'),
     },
     {
         id: '3',
-        image: require('../../assets/images/image3.png'),
+        image: require('../../../assets/images/image3.png'),
     },
     {
         id: '4',
-        image: require('../../assets/images/image4.png'),
+        image: require('../../../assets/images/image4.png'),
     },
     {
         id: '5',
-        image: require('../../assets/images/img1.png'),
+        image: require('../../../assets/images/img1.png'),
     },
     {
         id: '6',
-        image: require('../../assets/images/image2.png'),
+        image: require('../../../assets/images/image2.png'),
     },
     {
         id: '7',
-        image: require('../../assets/images/image3.png'),
+        image: require('../../../assets/images/image3.png'),
     },
     {
         id: '8',
-        image: require('../../assets/images/image1.png'),
+        image: require('../../../assets/images/image1.png'),
     },
 ];
 
@@ -70,7 +71,7 @@ const Search = ({navigation}) => {
                             marginRight: 15
                         }}
 
-                        source={require('../../assets/images/icon/search.png')}/>
+                        source={require('../../../assets/images/icon/search.png')}/>
                     <TextInput placeholder={'Хайх'} placeholderTextColor={'#808082'} style={styles.input}/>
                 </View>
 
@@ -81,15 +82,15 @@ const Search = ({navigation}) => {
                     marginBottom: 10
                 }}>
                     <Text style={{...styles.text, marginBottom: 0}}>Алдартай</Text>
-                    <View style={styles.filter}>
+                    <TouchableOpacity  style={styles.filter} onPress={()=>navigation.navigate('filter')}>
                         <Image
                             style={{
                                 height: 20,
                                 width: 20,
                                 tintColor: '#808082',
                             }}
-                            source={require('../../assets/images/icon/filter.png')}/>
-                    </View>
+                            source={require('../../../assets/images/icon/filter.png')}/>
+                    </TouchableOpacity>
                 </View>
                 <FlatList
                     data={data}
@@ -144,6 +145,7 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         height: 35,
         width: 35,
+
 
     }
 })

@@ -1,7 +1,7 @@
 import React from 'react'
 import {Dimensions, FlatList, Image, ScrollView, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import Constants from 'expo-constants';
-import AppStyle from "../lib/AppStyle";
+import AppStyle from "../../lib/AppStyle";
 
 
 const screenWidth = Math.round(Dimensions.get('window').width);
@@ -10,25 +10,25 @@ const screenWidth = Math.round(Dimensions.get('window').width);
 const data = [
     {
         id: '1',
-        image: require('../../assets/images/harry.jpg'),
+        image: require('../../../assets/images/harry.jpg'),
         title: 'Harry Potter',
         season: 4
     },
     {
         id: '2',
-        image: require('../../assets/images/twilight.jpeg'),
+        image: require('../../../assets/images/twilight.jpeg'),
         title: 'Twilight',
         season: 6
     },
     {
         id: '3',
-        image: require('../../assets/images/got.jpeg'),
+        image: require('../../../assets/images/got.jpeg'),
         title: 'Game of thrones',
         season: 4
     },
     {
         id: '4',
-        image: require('../../assets/images/hobbit.jpg'),
+        image: require('../../../assets/images/hobbit.jpg'),
         title: 'Hobbits',
         season: 5
     },
@@ -37,7 +37,7 @@ const data = [
 
 const renderItem = (item: any, index: number, separators: any, navigation: any) => (
     <TouchableOpacity
-        key={index} style={{width: screenWidth - 30, marginBottom: 10}}>
+        key={index} style={{width: screenWidth - 30, marginBottom: 10}} onPress={()=>navigation.navigate('seriesDetail')}>
         <Image
             style={{
                 width: screenWidth - 30,

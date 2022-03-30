@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import {Text, View, StyleSheet, TouchableOpacity, Dimensions} from "react-native";
 import MelonNavigation from "../../lib/MelonNavigation";
 import AppStyle from "../../lib/AppStyle";
+import MelonButton from "../../lib/MelonButton";
 
 
 const screenWidth = Math.round(Dimensions.get('window').width);
@@ -46,6 +47,8 @@ const About = ({navigation}) => {
                         </TouchableOpacity>
                     </View>
                 </View>
+                <MelonButton title={'Мэдээлэл өөрчлөх'} type={'main'} style={styles.btn}/>
+
             </View>
         </MelonNavigation>
 
@@ -95,6 +98,10 @@ const styles = StyleSheet.create({
     },
     direction:{
         flexDirection: 'row', alignItems: 'center',marginRight: 30
+    },
+    btn:{
+        width: screenWidth -30,
+        marginTop: 30
     }
 
 

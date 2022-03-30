@@ -82,7 +82,7 @@ const Profile = ({navigation}) => {
                         }}
                         source={require('../../../assets/images/icon/gift.png')}/>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.middle}>
+                <TouchableOpacity style={styles.middle} onPress={()=> navigation.navigate('personalControl')}>
                     <Text style={styles.middleText}>Насанд хүрэгчид</Text>
                     <Image
                         style={{

@@ -5,7 +5,6 @@ import {LinearGradient} from 'expo-linear-gradient';
 import AppStyle from "../../lib/AppStyle";
 import MelonNavigation from "../../lib/MelonNavigation";
 import HomeVideos from "./HomeVideos";
-import Collapsible from "react-native-collapsible";
 import CollectionsVideo from "./CollectionsVideo";
 
 

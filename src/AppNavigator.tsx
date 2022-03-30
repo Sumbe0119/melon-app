@@ -10,10 +10,10 @@ import HollywoodMovie from "./components/HollywoodMovie";
 import Single from "./components/Single";
 import Comments from "./components/Comments";
 import Profile from "./components/profile/Profile";
-import Search from "./components/Search";
+import Search from "./components/search/Search";
 import Support from "./components/profile/Support";
 import Settings from "./components/profile/Settings";
-import Series from "./components/Series";
+import Series from "./components/series/Series";
 import Login from "./components/user/Login";
 import Register from "./components/user/Register";
 import ResetPassword from "./components/user/ResetPassword";
@@ -21,6 +21,9 @@ import Premium from "./components/Premium";
 import Subscriptions from "./components/profile/Subscriptions";
 import Bonus from "./components/profile/Bonus";
 import About from "./components/profile/About";
+import PersonControl from "./components/profile/PersonControl";
+import SeriesDetail from "./components/series/SeriesDetail";
+import Filter from "./components/search/Filter";
 
 
 
@@ -46,7 +49,7 @@ const HomeTabView = () => {
                             <Image style={{
                                 width: 24,
                                 height: 24,
-                                tintColor: '#fff'
+                                tintColor: '#fff',
                             }} source={require('../assets/images/icon/activeHome.png')}/>
                             :
                             <Image style={{
@@ -150,6 +153,9 @@ export default () => {
                 <MainStack.Screen name="subscriptions" component={Subscriptions}/>
                 <MainStack.Screen name="bonus" component={Bonus}/>
                 <MainStack.Screen name="about" component={About}/>
+                <MainStack.Screen name="personalControl" component={PersonControl}/>
+                <MainStack.Screen name="seriesDetail" component={SeriesDetail}/>
+                <MainStack.Screen name="filter" component={Filter}/>
             </>
         </MainStack.Navigator>
     )
